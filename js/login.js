@@ -1,9 +1,9 @@
 import { db } from "./firebase.js";
 
 import {
-  collection,
-  addDoc,
-  serverTimestamp
+    collection,
+    addDoc,
+    serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 // Show / Hide Password
@@ -51,15 +51,13 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
 
         });
 
-        alert("Data Saved Successfully!");
-
+        // Data Save হওয়ার পর সরাসরি Dashboard-এ যাবে
         window.location.href = "dashboard.html";
 
     } catch (error) {
 
         console.error(error);
-
-        alert("Error : " + error.message);
+        alert("Error: " + error.message);
 
     }
 
