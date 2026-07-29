@@ -3,165 +3,323 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I Miss You ❤️</title>
+<title>Love Quiz ❤️</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    font-family: "Poppins", sans-serif;
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
+    background:linear-gradient(-45deg,#ff4e8a,#ff8fb1,#ff5d9e,#ff7aa8);
+    background-size:400% 400%;
+    animation:bg 12s ease infinite;
     overflow:hidden;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#4c1d95);
-    animation:bgMove 8s ease infinite alternate;
 }
 
-@keyframes bgMove{
-    from{
-        filter:hue-rotate(0deg);
-    }
-    to{
-        filter:hue-rotate(25deg);
-    }
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
-.container{
-    width:90%;
-    max-width:350px;
-    text-align:center;
-    padding:30px 20px;
+.card{
+    width:420px;
+    max-width:90%;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(20px);
     border-radius:25px;
-    backdrop-filter:blur(12px);
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.2);
-    box-shadow:0 0 40px rgba(255,255,255,.15);
+    padding:35px;
+    text-align:center;
+    color:white;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    animation:pop .8s;
+}
+
+@keyframes pop{
+from{transform:scale(.7);opacity:0;}
+to{transform:scale(1);opacity:1;}
 }
 
 h1{
-    color:#ffb3d9;
-    font-size:36px;
-    margin-bottom:15px;
-    animation:glow 2s infinite alternate;
+    font-size:30px;
+    margin-bottom:10px;
 }
 
-@keyframes glow{
-    from{
-        text-shadow:0 0 10px #ff69b4;
-    }
-    to{
-        text-shadow:0 0 30px #ff1493,
-                    0 0 60px #ff1493;
-    }
-}
-
-.name{
-    color:white;
-    font-size:28px;
-    font-weight:bold;
-    line-height:1.4;
-}
-
-.msg{
-    margin-top:20px;
-    color:#f8fafc;
-    font-size:15px;
-    line-height:1.8;
-}
-
-.heart{
-    font-size:70px;
-    animation:beat 1s infinite;
+.progress{
+    width:100%;
+    height:8px;
+    background:rgba(255,255,255,.25);
+    border-radius:20px;
     margin:20px 0;
+    overflow:hidden;
 }
 
-@keyframes beat{
-    0%{transform:scale(1);}
-    25%{transform:scale(1.15);}
-    50%{transform:scale(.95);}
-    75%{transform:scale(1.2);}
-    100%{transform:scale(1);}
+.bar{
+    height:100%;
+    width:20%;
+    background:white;
+    transition:.5s;
 }
 
-.footer{
-    margin-top:25px;
-    color:#ffc1d6;
-    font-size:14px;
+.question{
+    font-size:22px;
+    margin:20px 0;
+    min-height:70px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    margin:8px 0;
+    border:none;
+    border-radius:15px;
+    background:white;
+    color:#ff2d75;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+    font-weight:bold;
+}
+
+button:hover{
+    transform:scale(1.05);
+    background:#ffe2ed;
+}
+
+#result{
+    display:none;
+}
+
+.big{
+    font-size:70px;
+    animation:bounce 1s infinite;
+}
+
+@keyframes bounce{
+50%{
+transform:translateY(-12px);
+}
+}
+
+.message{
+    margin-top:20px;
+    font-size:20px;
+    line-height:1.7;
+}
+
+small{
     opacity:.8;
 }
 
-span{
-    color:#ff80ab;
-}
-
-.circle{
-    position:absolute;
-    border-radius:50%;
-    background:rgba(255,255,255,.12);
-    animation:float 8s linear infinite;
-}
-
-.circle:nth-child(1){
-    width:120px;
-    height:120px;
-    top:-40px;
-    left:-40px;
-}
-
-.circle:nth-child(2){
-    width:180px;
-    height:180px;
-    bottom:-70px;
-    right:-60px;
-    animation-duration:10s;
+.heart{
+position:absolute;
+color:white;
+font-size:22px;
+animation:float 8s linear infinite;
+opacity:.8;
 }
 
 @keyframes float{
-    50%{
-        transform:translateY(-20px);
-    }
+from{
+transform:translateY(110vh);
+opacity:0;
 }
-
+20%{
+opacity:1;
+}
+to{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
 </style>
 </head>
 <body>
 
-<div class="circle"></div>
-<div class="circle"></div>
+<div class="card">
 
-<div class="container">
+<h1>❤️ Love Quiz ❤️</h1>
 
-<div class="heart">❤️</div>
-
-<h1>I Miss You</h1>
-
-<div class="name">
-Puja Roy
+<div class="progress">
+<div class="bar" id="bar"></div>
 </div>
 
-<div class="msg">
-Some people leave memories that never fade.<br><br>
+<div id="quiz">
 
-Every moment without <span>you</span> feels incomplete.<br>
+<div class="question" id="question"></div>
 
-No matter how much time passes,<br>
-
-my heart still whispers the same words...<br><br>
-
-<b>"I Miss You, Puja Roy."</b>
-</div>
-
-<div class="footer">
-Forever in my heart... ❤️
-</div>
+<div id="answers"></div>
 
 </div>
+
+<div id="result">
+
+    <div class="big">😂❤️</div>
+
+    <h2>Final Result</h2>
+
+    <div class="message">
+
+        Scanning your answers... 🔍
+
+        <br><br>
+
+        ✅ Smile detected 😊
+
+        <br>
+
+        ✅ Cute detected 🥹
+
+        <br>
+
+        ✅ Love level: 1000000% ❤️
+
+        <br><br>
+
+        <h1>Congratulations Dithi! 🎉</h1>
+
+        <p style="margin-top:15px;font-size:22px;">
+            You have been arrested by the
+            <br>
+            <b>Love Police. 🚔❤️</b>
+        </p>
+
+        <br>
+
+        <h2>
+            Your punishment is...
+        </h2>
+
+        <h1 style="margin-top:15px;">
+            ❤️ Loving Me Forever ❤️
+        </h1>
+
+        <br>
+
+        <small>
+            No lawyer.
+            <br>
+            No bail.
+            <br>
+            Only hugs! 🤗😂
+        </small>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const quiz=[
+
+{
+q:"Who is the cutest? 🥺",
+a:["You ❤️","Me 😎","Both 💕","Panda 🐼"]
+},
+
+{
+q:"Who loves more? ❤️",
+a:["You","Me","Both","Infinity"]
+},
+
+{
+q:"What should we do together? 🌸",
+a:["Travel ✈️","Movie 🎬","Date 🍕","Everything ❤️"]
+},
+
+{
+q:"What's my favourite thing? 🥰",
+a:["Your smile 😊","Your laugh 😂","You ❤️","All of them"]
+},
+
+{
+q:"Ready for the final surprise? 🎁",
+a:["Yes ❤️","Absolutely ❤️","100% ❤️","Let's Go 🚀"]
+}
+
+];
+
+let current=0;
+
+const question=document.getElementById("question");
+const answers=document.getElementById("answers");
+const bar=document.getElementById("bar");
+
+function loadQuestion(){
+
+question.innerHTML=quiz[current].q;
+
+answers.innerHTML="";
+
+quiz[current].a.forEach(ans=>{
+
+const btn=document.createElement("button");
+
+btn.innerHTML=ans;
+
+btn.onclick=next;
+
+answers.appendChild(btn);
+
+});
+
+bar.style.width=((current+1)/quiz.length)*100+"%";
+
+}
+
+function next(){
+
+current++;
+
+if(current<quiz.length){
+
+loadQuestion();
+
+}else{
+
+document.getElementById("quiz").style.display="none";
+
+document.getElementById("result").style.display="block";
+
+}
+
+}
+
+loadQuestion();
+
+function hearts(){
+
+const h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=5+Math.random()*5+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),10000);
+
+}
+
+setInterval(hearts,250);
+
+</script>
 
 </body>
 </html>
