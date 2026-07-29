@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Miss You ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#4c1d95);
+    animation:bgMove 8s ease infinite alternate;
+}
+
+@keyframes bgMove{
+    from{
+        filter:hue-rotate(0deg);
+    }
+    to{
+        filter:hue-rotate(25deg);
+    }
+}
+
+.container{
+    width:90%;
+    max-width:350px;
+    text-align:center;
+    padding:30px 20px;
+    border-radius:25px;
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 0 40px rgba(255,255,255,.15);
+}
+
+h1{
+    color:#ffb3d9;
+    font-size:36px;
+    margin-bottom:15px;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #ff69b4;
+    }
+    to{
+        text-shadow:0 0 30px #ff1493,
+                    0 0 60px #ff1493;
+    }
+}
+
+.name{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    line-height:1.4;
+}
+
+.msg{
+    margin-top:20px;
+    color:#f8fafc;
+    font-size:15px;
+    line-height:1.8;
+}
+
+.heart{
+    font-size:70px;
+    animation:beat 1s infinite;
+    margin:20px 0;
+}
+
+@keyframes beat{
+    0%{transform:scale(1);}
+    25%{transform:scale(1.15);}
+    50%{transform:scale(.95);}
+    75%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+.footer{
+    margin-top:25px;
+    color:#ffc1d6;
+    font-size:14px;
+    opacity:.8;
+}
+
+span{
+    color:#ff80ab;
+}
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+    animation:float 8s linear infinite;
+}
+
+.circle:nth-child(1){
+    width:120px;
+    height:120px;
+    top:-40px;
+    left:-40px;
+}
+
+.circle:nth-child(2){
+    width:180px;
+    height:180px;
+    bottom:-70px;
+    right:-60px;
+    animation-duration:10s;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="circle"></div>
+<div class="circle"></div>
+
+<div class="container">
+
+<div class="heart">❤️</div>
+
+<h1>I Miss You</h1>
+
+<div class="name">
+Puja Roy
+</div>
+
+<div class="msg">
+Some people leave memories that never fade.<br><br>
+
+Every moment without <span>you</span> feels incomplete.<br>
+
+No matter how much time passes,<br>
+
+my heart still whispers the same words...<br><br>
+
+<b>"I Miss You, Puja Roy."</b>
+</div>
+
+<div class="footer">
+Forever in my heart... ❤️
+</div>
+
+</div>
+
+</body>
+</html>
