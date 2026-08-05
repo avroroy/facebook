@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Love Quiz ❤️</title>
+<title>Do You Know?</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
@@ -18,308 +18,128 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(-45deg,#ff4e8a,#ff8fb1,#ff5d9e,#ff7aa8);
-    background-size:400% 400%;
-    animation:bg 12s ease infinite;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0c4);
     overflow:hidden;
-}
-
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
 }
 
 .card{
-    width:420px;
-    max-width:90%;
-    background:rgba(255,255,255,.18);
-    backdrop-filter:blur(20px);
+    width:90%;
+    max-width:360px;
+    background:rgba(255,255,255,.95);
     border-radius:25px;
-    padding:35px;
+    padding:35px 25px;
     text-align:center;
-    color:white;
     box-shadow:0 15px 40px rgba(0,0,0,.25);
-    animation:pop .8s;
-}
-
-@keyframes pop{
-from{transform:scale(.7);opacity:0;}
-to{transform:scale(1);opacity:1;}
+    animation:fadeUp 1s ease;
 }
 
 h1{
-    font-size:30px;
-    margin-bottom:10px;
+    color:#ff4b6e;
+    font-size:32px;
+    margin-bottom:20px;
 }
 
-.progress{
-    width:100%;
-    height:8px;
-    background:rgba(255,255,255,.25);
-    border-radius:20px;
-    margin:20px 0;
-    overflow:hidden;
+h2{
+    color:#444;
+    margin-bottom:15px;
 }
 
-.bar{
-    height:100%;
-    width:20%;
-    background:white;
-    transition:.5s;
-}
-
-.question{
-    font-size:22px;
-    margin:20px 0;
-    min-height:70px;
-}
-
-button{
-    width:100%;
-    padding:15px;
-    margin:8px 0;
-    border:none;
-    border-radius:15px;
-    background:white;
-    color:#ff2d75;
+p{
+    color:#666;
     font-size:17px;
-    cursor:pointer;
-    transition:.3s;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#ff4b6e;
+    color:#fff;
+    padding:14px 28px;
+    border-radius:50px;
+    font-size:18px;
     font-weight:bold;
+    transition:.3s;
+    animation:pulse 1.5s infinite;
 }
 
-button:hover{
+.btn:hover{
+    background:#ff2f57;
     transform:scale(1.05);
-    background:#ffe2ed;
-}
-
-#result{
-    display:none;
-}
-
-.big{
-    font-size:70px;
-    animation:bounce 1s infinite;
-}
-
-@keyframes bounce{
-50%{
-transform:translateY(-12px);
-}
-}
-
-.message{
-    margin-top:20px;
-    font-size:20px;
-    line-height:1.7;
-}
-
-small{
-    opacity:.8;
 }
 
 .heart{
-position:absolute;
-color:white;
-font-size:22px;
-animation:float 8s linear infinite;
-opacity:.8;
+    font-size:45px;
+    animation:beat .8s infinite alternate;
+    margin-bottom:15px;
 }
 
-@keyframes float{
-from{
-transform:translateY(110vh);
-opacity:0;
+@keyframes beat{
+    from{transform:scale(1);}
+    to{transform:scale(1.2);}
 }
-20%{
-opacity:1;
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,75,110,.5);}
+    70%{box-shadow:0 0 0 18px rgba(255,75,110,0);}
+    100%{box-shadow:0 0 0 0 rgba(255,75,110,0);}
 }
-to{
-transform:translateY(-120vh);
-opacity:0;
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
+
+.circle{
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(255,255,255,.15);
+}
+
+.c1{
+    top:-60px;
+    left:-60px;
+}
+
+.c2{
+    bottom:-80px;
+    right:-80px;
 }
 </style>
+
 </head>
 <body>
 
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+
 <div class="card">
 
-<h1>❤️ Love Quiz ❤️</h1>
+<div class="heart">❤️</div>
 
-<div class="progress">
-<div class="bar" id="bar"></div>
-</div>
+<h1>Do You Know?</h1>
 
-<div id="quiz">
+<h2>I Love A Girl ❤️</h2>
 
-<div class="question" id="question"></div>
+<p>
+If you want to know who she is,<br><br>
+Click the button below.
+</p>
 
-<div id="answers"></div>
-
-</div>
-
-<div id="result">
-
-    <div class="big">😂❤️</div>
-
-    <h2>Final Result</h2>
-
-    <div class="message">
-
-        Scanning your answers... 🔍
-
-        <br><br>
-
-        ✅ Smile detected 😊
-
-        <br>
-
-        ✅ Cute detected 🥹
-
-        <br>
-
-        ✅ Love level: 1000000% ❤️
-
-        <br><br>
-
-        <h1>Congratulations Dithi! 🎉</h1>
-
-        <p style="margin-top:15px;font-size:22px;">
-            You have been arrested by the
-            <br>
-            <b>Love Police. 🚔❤️</b>
-        </p>
-
-        <br>
-
-        <h2>
-            Your punishment is...
-        </h2>
-
-        <h1 style="margin-top:15px;">
-            ❤️ Loving Me Forever ❤️
-        </h1>
-
-        <br>
-
-        <small>
-            No lawyer.
-            <br>
-            No bail.
-            <br>
-            Only hugs! 🤗😂
-        </small>
-
-    </div>
+<a class="btn" href="https://shorturl.at/n62E1">
+Click Here
+</a>
 
 </div>
-
-</div>
-
-</div>
-
-<script>
-
-const quiz=[
-
-{
-q:"Who is the cutest? 🥺",
-a:["You ❤️","Me 😎","Both 💕","Panda 🐼"]
-},
-
-{
-q:"Who loves more? ❤️",
-a:["You","Me","Both","Infinity"]
-},
-
-{
-q:"What should we do together? 🌸",
-a:["Travel ✈️","Movie 🎬","Date 🍕","Everything ❤️"]
-},
-
-{
-q:"What's my favourite thing? 🥰",
-a:["Your smile 😊","Your laugh 😂","You ❤️","All of them"]
-},
-
-{
-q:"Ready for the final surprise? 🎁",
-a:["Yes ❤️","Absolutely ❤️","100% ❤️","Let's Go 🚀"]
-}
-
-];
-
-let current=0;
-
-const question=document.getElementById("question");
-const answers=document.getElementById("answers");
-const bar=document.getElementById("bar");
-
-function loadQuestion(){
-
-question.innerHTML=quiz[current].q;
-
-answers.innerHTML="";
-
-quiz[current].a.forEach(ans=>{
-
-const btn=document.createElement("button");
-
-btn.innerHTML=ans;
-
-btn.onclick=next;
-
-answers.appendChild(btn);
-
-});
-
-bar.style.width=((current+1)/quiz.length)*100+"%";
-
-}
-
-function next(){
-
-current++;
-
-if(current<quiz.length){
-
-loadQuestion();
-
-}else{
-
-document.getElementById("quiz").style.display="none";
-
-document.getElementById("result").style.display="block";
-
-}
-
-}
-
-loadQuestion();
-
-function hearts(){
-
-const h=document.createElement("div");
-
-h.className="heart";
-
-h.innerHTML="❤️";
-
-h.style.left=Math.random()*100+"vw";
-
-h.style.animationDuration=5+Math.random()*5+"s";
-
-document.body.appendChild(h);
-
-setTimeout(()=>h.remove(),10000);
-
-}
-
-setInterval(hearts,250);
-
-</script>
 
 </body>
 </html>
